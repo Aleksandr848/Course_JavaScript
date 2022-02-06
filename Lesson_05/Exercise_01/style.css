@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    width: 800px;
+    height: 800px;
+    border: solid black 2px;
+}
+.row-1 .row-2 {
+    display: flex;
+    height: 800px;
+}
+.row-1 .square:nth-child(even){
+    background-color: black;
+    color: white;
+}
+.row-1 .square:nth-child(odd){
+    background-color: white;
+}
+.row-2 .square:nth-child(odd){
+    background-color: black;
+}
+.row-2 .square:nth-child(even){
+    background-color: white;
+}
+.square{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    font-size:18px;
+}
+.letter{
+    margin-top: 38px;
+    margin-left: 2px;
+}
+.number{
+    margin-left: 38px;
+    margin-top: 2px;
+}
+.row-2 .number{
+    color: white;
+}
