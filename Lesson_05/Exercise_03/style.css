@@ -1,0 +1,29 @@
+table {
+    border-style: solid;
+    width: 800px;
+    height: 800px;
+}
+table tr {
+    border-style: solid;
+}
+table tr td {
+    border-style: solid;
+    height: 100px;
+    width: 100px;
+
+}
+table tr:nth-child(odd) td:nth-child(even) {
+    background-color: black;
+}
+table tr:nth-child(even) td:nth-child(odd) {
+     background-color: black;
+ }
+table tr td p {
+    text-align: center;
+    background-color: white;
+    margin: 0 20px 0 20px;
+}
+.white-chess {
+    color: white;
+    background-color: black;
+}

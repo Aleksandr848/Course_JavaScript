@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous" />
+    <style>
+        i {
+            font-size: 50px;
+        }
+        .golden {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+
+<div class="stars_container">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+
+<script>
+    "use strict";
+
+    /*
+    1. При наведении на любую из звезд, данной звезде должен ставиться класс
+    golden, также такой класс должен ставиться всем звездам до нее слева.
+    */
+
+    const stars = document.querySelector('div.stars_container');
+    console.log(stars.querySelectorAll('i'));
+    const allstars = stars.querySelectorAll('i');
+
+    stars.addEventListener('mouseover', event => {
+        console.log(event.target);
+
+        for (let i = 0; i < allstars.length; i++) {
+            if (event.target === allstars[i]) {
+                for (let j = 0; j < i + 1; j++) {
+                allstars[j].classList.add('golden');
+                }
+            }
+        }
+    })
+
+
+
+    /*
+    2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
+    задания должны быть удалены.
+     */
+
+    stars.addEventListener('mouseout', event => {
+        for (let i = 0; i < allstars.length; i++) {
+            if (event.target === allstars[i]) {
+                for (let j = 0; j < i + 1; j++) {
+                    allstars[j].classList.remove('golden');
+                }
+            }
+        }
+    })
+
+    /*
+    3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
+    звезды (временно могут становиться черными). Почему так? Напишите словами.
+    Можем ли мы это исправить? Если да, то предложите решение.
+    */
+
+    /*
+    * В диве между элементами "i" имеются знаки табуляции, которые в нодах обозначаются как текст. Событие mouseover
+    * я поставил на элемент "i", поэтому, когда указатель мыши попадает на ноду "текст", срабатывает событие mouseout и
+    * звёзды "гаснут". Чтобы убрать мигание, можно, например, все теги i написать в одну строку, как это сделал я выше.
+    * Но это неправильно. Можно программно в цикле перебрать все ноды и удалить все текстовые.
+    * */
+
+    document.querySelector('.stars_container').childNodes.forEach(node => {  // эту часть я благополучно списал, но
+        console.log(node);                                                   // полностью понимаю, что тут чёрт возьми
+        if (node.nodeName === '#text') {                                     // происходит!
+            node.remove();
+        }
+    });
+
+</script>
+</body>
+</html>
